@@ -2,37 +2,43 @@
 <html>
 
 <head>
-    <title>Deep Link Test</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 40px;
-            text-align: center;
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        function redirect() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // 1. Android Detection
+            if (/android/i.test(userAgent)) {
+                // Redirect to Google Play Store
+                // If the app is installed, this might trigger it to open.
+                // If not, it opens the Play Store page.
+                window.location.href = "https://play.google.com/store/apps/details?id=com.zustest";
+            }
+
+            // 2. iOS Detection
+            else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Redirect to Apple App Store
+                // REPLACE 'id123456789' WITH YOUR REAL APPLE APP ID
+                window.location.href = "https://apps.apple.com/app/id123456789";
+            }
+
+            // 3. Desktop / Fallback
+            else {
+                document.getElementById("message").innerText = "Please open this link on a mobile device to use the App.";
+            }
         }
 
-        a {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            margin: 10px;
-        }
-    </style>
+        // Run the redirect function when the page loads
+        window.onload = redirect;
+    </script>
 </head>
 
-<body>
-    <h1>React Native Deep Link Test</h1>
-    <p>Click the buttons below to open your app:</p>
-
-    <a href="https://devalokin.github.io/home">Open Home Screen</a>
-
-    <br><br>
-
-    <a href="https://devalokin.github.io/profile/123">Open Profile #123</a>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <h2 id="message">Redirecting to the App Store...</h2>
+    <p>If you are not redirected automatically, <a
+            href="https://play.google.com/store/apps/details?id=com.esense.topschool.student&pcampaignid=web_share">click
+            here</a>.</p>
 </body>
 
 </html>
