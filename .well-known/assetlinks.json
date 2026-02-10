@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.zustest",
+            "sha256_cert_fingerprints": [
+                "D8:BE:C7:60:19:C0:E3:CD:14:95:F0:6F:B9:C5:FB:F9:34:C3:92:84:7D:08:80:D8:C9:17:8E:E6:A1:5E:3F:6C"
+            ]
+        }
+    }
+]
